@@ -168,15 +168,19 @@ class RekapVariabelHarian extends CActiveRecord
 		}
 
 		if($numerator != 0 && $denumerator == 0){
-			$return = 'N/A';
+			$nilaiPersen = 'N/A';
 		}else{
 			$persen = round((($numerator/$denumerator)*100), 2);
-			$return = $persen.'%';
+			$nilaiPersen = $persen.'%';
 		}
 
 		if($numerator == 0 && $denumerator == 0){
-			$return = '0%';
+			$nilaiPersen = '0%';
 		}
+
+		$return['numerator'] = $numerator;
+		$return['denumerator'] = $denumerator;
+		$return['persen'] = $nilaiPersen;
 		
 
 		return $return;
