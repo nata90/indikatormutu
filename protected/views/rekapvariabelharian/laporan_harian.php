@@ -26,6 +26,7 @@ $js=<<<EOP
 	$(document).on("click", "#cari-per-tanggal", function () {
 		var bulan = $('#RekapVariabelHarian_month').val();
 		var tahun = $('#RekapVariabelHarian_year').val();
+		var satker = $('#RekapVariabelHarian_satker').val();
 
 		$.ajax({
 			type: 'get',
@@ -33,7 +34,8 @@ $js=<<<EOP
 			dataType:'json',
 			data : {
 				'bulan':bulan, 
-				'tahun':tahun
+				'tahun':tahun,
+				'satker':satker
 			},
 			success: function(v) {
 				$('.grid-view').html(v.html);
@@ -115,6 +117,12 @@ EOP;
 					</select>*/ ?>
 				</td>
 			</tr>
+			<tr <?php echo $idSatker==2?'':'style="display:none;"';?>>
+				<td>Satker</td>
+				<td>
+					<?php echo $form->dropDownList($model,'satker',CHtml::listData($allSatker, 'id_satker', 'nama_satker'), array('prompt'=>'Semua Satker')); ?>
+				</td>
+			</tr>
 			<tr>
 				<td></td>
 				<td>
@@ -138,7 +146,7 @@ EOP;
 							echo '<th id="variabel-grid_c0" >No.</th>';
 							echo '<th id="variabel-grid_c1" >Variabel</th>';
 								for($i = 1 ; $i<=$jumlahHari; $i++){
-									echo '<th id="variabel-grid_c'. $i .'">'.$i.'</th>';
+									echo '<th id="variabel-grid_c'. $i .'" style="text-align:center;">'.$i.'</th>';
 								}
 						?>
 						</tr>
@@ -158,7 +166,7 @@ EOP;
 						    		echo '<td width = 20px; align = "center">'.$no.'</td>';
 						    		echo '<td width = 400px;>'.$data->idVariabel->uraian_variabel.'</td>';
 						    		for($i = 1 ; $i<=$jumlahHari; $i++){
-						    			echo '<td width = 25px; style="text-align:center;">'.RekapVariabelHarian::getDataPerTanggal(date('Y-m-').$i,$data->id_variabel, Yii::app()->user->id).'</td>';
+						    			echo '<td width = 25px; style="text-align:center;">'.RekapVariabelHarian::getDataPerTanggal(date('Y-m-').$i,$data->id_variabel, $idSatker).'</td>';
 						    		}
 						    		
 					    		echo '</tr>';

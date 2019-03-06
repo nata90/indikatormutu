@@ -20,6 +20,9 @@
  */
 class Indikator extends CActiveRecord
 {
+
+	public $month;
+	public $year;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -41,7 +44,8 @@ class Indikator extends CActiveRecord
 			array('area_ind, uraian_ind', 'length', 'max'=>300),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_indikator, area_ind, uraian_ind, id_klp, status, standar, variabel_1, variabel_2, periode_indikator', 'safe', 'on'=>'search'),
+			array('id_indikator, area_ind, uraian_ind, id_klp, status, standar, variabel_1, variabel_2, periode_indikator, month, year', 'safe'),
+			array('id_indikator, area_ind, uraian_ind, id_klp, status, standar, variabel_1, variabel_2, periode_indikator, month, year', 'safe', 'on'=>'search'),
 		);
 	}
 

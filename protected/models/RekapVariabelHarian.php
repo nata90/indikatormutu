@@ -18,6 +18,7 @@ class RekapVariabelHarian extends CActiveRecord
 {
 	public $month;
 	public $year;
+	public $satker;
 
 	/**
 	 * @return string the associated database table name
@@ -40,8 +41,8 @@ class RekapVariabelHarian extends CActiveRecord
 			array('nilai_variabel_hr', 'length', 'max'=>19),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_rekapvariabel_hr, id_variabel_satker, tgl_data, nilai_variabel_hr, tgl_input_hr, user_id, month, year', 'safe'),
-			array('id_rekapvariabel_hr, id_variabel_satker, tgl_data, nilai_variabel_hr, tgl_input_hr, user_id, month, year', 'safe', 'on'=>'search'),
+			array('id_rekapvariabel_hr, id_variabel_satker, tgl_data, nilai_variabel_hr, tgl_input_hr, user_id, month, year, satker', 'safe'),
+			array('id_rekapvariabel_hr, id_variabel_satker, tgl_data, nilai_variabel_hr, tgl_input_hr, user_id, month, year, satker', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,6 +55,7 @@ class RekapVariabelHarian extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idVariabelSatker' => array(self::BELONGS_TO, 'VariabelSatker', 'id_variabel_satker'),
+			'user_rel' => array(self::BELONGS_TO, 'User', 'user_id'),
 		);
 	}
 
@@ -113,19 +115,69 @@ class RekapVariabelHarian extends CActiveRecord
 		return parent::model($className);
 	}
 
-	public static function getDataPerTanggal($tanggalData, $idVariabel, $userId){
+	public static function getDataPerTanggal($tanggalData, $idVariabel, $idSatker){
 
-		file_put_contents('filename_'.$idVariabel.'.txt', $tanggalData.' '.$idVariabel.' '.$userId);
 		$model = RekapVariabelHarian::model()->find(array(
-			'with'=>'idVariabelSatker',
-			'condition'=>'tgl_data = :tgl AND idVariabelSatker.id_variabel = :ivs AND user_id = :uid',
-			'params'=>array(':tgl'=>date('Y-m-d', strtotime($tanggalData)), ':ivs'=>$idVariabel, ':uid'=>$userId)
+			'with'=>array('idVariabelSatker','user_rel'),
+			'condition'=>'tgl_data = :tgl AND idVariabelSatker.id_variabel = :ivs AND user_rel.id_satker = :sid',
+			'params'=>array(':tgl'=>date('Y-m-d', strtotime($tanggalData)), ':ivs'=>$idVariabel, ':sid'=>$idSatker)
 		));
 
-		$return = 0;
+		$return = '-';
 		if($model != null){
 			$return = $model->nilai_variabel_hr;
 		}
+
+		return $return;
+	}
+
+
+	public static function getPersenLaporanHarian($idIndikator, $idSatker, $hari, $bulan, $tahun){
+		$indikator = Indikator::model()->findByPk($idIndikator);
+		$tgl =date('Y-m-d', strtotime($tahun.'-'.$bulan.'-'.$hari));
+
+		$variabelSatkerNum = VariabelSatker::model()->find(array(
+			'condition'=>'id_satker = :ids AND id_variabel = :idv',
+			'params'=>array(':ids'=>$idSatker, ':idv'=>$indikator->variabel_1)
+		));
+
+		$variabelSatkerDen = VariabelSatker::model()->find(array(
+			'condition'=>'id_satker = :ids AND id_variabel = :idv',
+			'params'=>array(':ids'=>$idSatker, ':idv'=>$indikator->variabel_2)
+		));
+
+		$nilaiNum = RekapVariabelHarian::model()->find(array(
+			'condition'=>'id_variabel_satker = :idv AND tgl_input_hr = "'.$tgl.'"',
+			'params'=>array(':idv'=>$variabelSatkerNum->id_variabel_satker)
+		));
+
+		$nilaiDen = RekapVariabelHarian::model()->find(array(
+			'condition'=>'id_variabel_satker = :idv AND tgl_input_hr = "'.$tgl.'"',
+			'params'=>array(':idv'=>$variabelSatkerDen->id_variabel_satker)
+		));
+
+		$numerator = 0;
+		$denumerator = 0;
+
+		if($nilaiNum != null){
+			$numerator = $nilaiNum->nilai_variabel_hr;
+		}
+
+		if($nilaiDen != null){
+			$denumerator = $nilaiDen->nilai_variabel_hr;
+		}
+
+		if($numerator != 0 && $denumerator == 0){
+			$return = 'N/A';
+		}else{
+			$persen = round((($numerator/$denumerator)*100), 2);
+			$return = $persen.'%';
+		}
+
+		if($numerator == 0 && $denumerator == 0){
+			$return = '0%';
+		}
+		
 
 		return $return;
 	}

@@ -59,6 +59,27 @@ return array(
 			'errorAction'=>'site/error',
 		),
 
+		'urlManager'=>array(
+			'urlFormat'=>'path',
+			'caseSensitive'=>false,
+			'rules'=>array(
+				// '<controller:\w+>/<id:\d+>'=>'<controller>/view',
+				// '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+				// '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				
+				//----------------------------TERBARU
+				//'<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<module>/<controller>/<action>',
+				'<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/<controller>/<action>',
+				'' => 'site/index',
+				//'<controller:\w+>/<action:\w+>'=>'<controller>/contact',
+				'<controller:\w+>/<id:\d+>/<title>'=>'<controller>/view',
+				//'<controller:\w+>/<title>'=>'<controller>/index',
+				'<controller:\w+>/<action:\w+>/<title>'=>'<controller>/<action>',
+				//'<controller:\w+>/<action:\w+>/<title>'=>'<controller>/<action>',
+				'<controller:\w+>' => '<controller>/index',
+			),
+		),
+
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(

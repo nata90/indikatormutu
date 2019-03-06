@@ -1,6 +1,6 @@
 <?php
 
-class RekapVariabelHarianController extends Controller
+class RekapvariabelharianController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class RekapVariabelHarianController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','laporanharian','simpannilai','laporanindikatorharian','getdataharian'),
+				'actions'=>array('create','update','admin','delete','laporanharian','simpannilai','laporanindikatorharian','getdataharian','getlaporanharian'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -158,10 +158,12 @@ class RekapVariabelHarianController extends Controller
 	public function actionLaporanharian()
 	{
 		if(isset($_GET['idsat'])){
-		$idSatker = $_GET['idsat'];
+			$idSatker = $_GET['idsat'];
 		}else {
 			$idSatker = Yii::app()->user->idsatker;
 		}
+
+		$allSatker =Satker::model()->findAll();
 		
 		$model=new RekapVariabelHarian('search');
 		$model2 = VariabelSatker::model()->findAll(array(
@@ -175,13 +177,16 @@ class RekapVariabelHarianController extends Controller
 
 		$model->month = date('m');
 		$model->year = date('Y');
+		$model->satker = $idSatker;
 
 		$jumlahHari = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
 
 		$this->render('laporan_harian',array(
 			'model'=>$model,
 			'model2'=>$model2,
-			'jumlahHari'=>$jumlahHari
+			'jumlahHari'=>$jumlahHari,
+			'allSatker'=>$allSatker,
+			'idSatker'=>$idSatker
 		));
 	}
 
@@ -229,7 +234,7 @@ class RekapVariabelHarianController extends Controller
 	public function actionLaporanindikatorharian()
 	{
 		if(isset($_GET['idsat'])){
-		$idSatker = $_GET['idsat'];
+			$idSatker = $_GET['idsat'];
 		}else {
 			$idSatker = Yii::app()->user->idsatker;
 		}
@@ -244,28 +249,50 @@ class RekapVariabelHarianController extends Controller
 		if(isset($_GET['Indikator']))
 			$model->attributes=$_GET['Indikator'];
 
+		$bulan = date('m');
+		$tahun = date('Y');
+		$model->month = $bulan;
+		$model->year = $tahun;
+
+		$jumlahHari = cal_days_in_month(CAL_GREGORIAN, date('m'),date('Y'));
+
 		$this->render('laporan_indikator_harian',array(
 			'model'=>$model,
 			'model2'=>$model2,
+			'jumlahHari'=>$jumlahHari,
+			'idSatker'=>$idSatker,
+			'bulan'=>$bulan,
+			'tahun'=>$tahun
 		));
 	}
 
 	public function actionGetDataHarian(){
 		$bulan = $_GET['bulan'];
 		$tahun = $_GET['tahun'];
+		$idSatker = $_GET['satker'];
 
-		if(isset($_GET['idsat'])){
+		/*if(isset($_GET['idsat'])){
 			$idSatker = $_GET['idsat'];
 		}else {
 			$idSatker = Yii::app()->user->idsatker;
-		}
-		
+		}*/
+
 		$model=new RekapVariabelHarian('search');
-		$model2 = VariabelSatker::model()->findAll(array(
+
+		if($idSatker != ''){
+			$model2 = VariabelSatker::model()->findAll(array(
 					'with'=>'idVariabel',
 					'condition'=>'id_satker=:id AND idVariabel.status_variabel=1',
 					'params'=>array(':id'=>$idSatker),
 				));
+		}else{
+			$model2 = VariabelSatker::model()->findAll(array(
+					'with'=>'idVariabel',
+					'condition'=>'idVariabel.status_variabel=1',
+					'group'=>'t.id_variabel'
+				));
+		}
+		
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['RekapVariabelHarian']))
 			$model->attributes=$_GET['RekapVariabelHarian'];
@@ -280,7 +307,46 @@ class RekapVariabelHarianController extends Controller
 			'model2'=>$model2,
 			'jumlahHari'=>$jumlahHari,
 			'bulan'=>$bulan,
-			'tahun'=>$tahun
+			'tahun'=>$tahun,
+			'idSatker'=>$idSatker
+		), true, false);
+
+		$this->_sendResponse(200, CJSON::encode($rows));
+	}
+
+	public function actionGetLaporanHarian(){
+		$bulan = $_GET['bulan'];
+		$tahun = $_GET['tahun'];
+
+		if(isset($_GET['idsat'])){
+			$idSatker = $_GET['idsat'];
+		}else {
+			$idSatker = Yii::app()->user->idsatker;
+		}
+		
+		$model=new Indikator('search');
+		$model2 = IndSatker::model()->findAll(array(
+					'with'=>'idIndikator',
+					'condition'=>'id_satker=:id AND idIndikator.status=1',
+					'params'=>array(':id'=>$idSatker),
+				));
+		$model->unsetAttributes();  // clear any default values
+
+		if(isset($_GET['Indikator']))
+			$model->attributes=$_GET['Indikator'];
+
+		$model->month = $bulan;
+		$model->year = $tahun;
+
+		$jumlahHari = cal_days_in_month(CAL_GREGORIAN,  $bulan, $tahun);
+
+		$rows['html'] = $this->renderPartial('ajax_laporan_indikator_harian',array(
+			'model'=>$model,
+			'model2'=>$model2,
+			'jumlahHari'=>$jumlahHari,
+			'bulan'=>$bulan,
+			'tahun'=>$tahun,
+			'idSatker'=>$idSatker
 		), true, false);
 
 		$this->_sendResponse(200, CJSON::encode($rows));

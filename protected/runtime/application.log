@@ -2399,3 +2399,565 @@ Stack trace:
 #20 {main}
 REQUEST_URI=/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanharian
 ---
+2019/03/04 14:23:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT `t`.`id_rekapvariabel_hr` AS `t0_c0`, `t`.`id_variabel_satker` AS `t0_c1`, `t`.`tgl_data` AS `t0_c2`, `t`.`nilai_variabel_hr` AS `t0_c3`, `t`.`tgl_input_hr` AS `t0_c4`, `t`.`user_id` AS `t0_c5`, `idVariabelSatker`.`id_variabel_satker` AS `t1_c0`, `idVariabelSatker`.`id_satker` AS `t1_c1`, `idVariabelSatker`.`id_variabel` AS `t1_c2`, `idVariabelSatker`.`status_variabel_satker` AS `t1_c3` FROM `rekap_variabel_harian` `t`  LEFT OUTER JOIN `variabel_satker` `idVariabelSatker` ON (`t`.`id_variabel_satker`=`idVariabelSatker`.`id_variabel_satker`) WHERE (tgl_data = :tgl AND idVariabelSatker.id_variabel = :ivs AND user_rel.id_satker = :sid).
+in /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php (123)
+in /var/www/html/indikatormutursbaru/protected/views/rekapVariabelHarian/laporan_harian.php (169)
+in /var/www/html/indikatormutursbaru/protected/controllers/RekapVariabelHarianController.php (189)
+2019/03/04 14:23:22 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT `t`.`id_rekapvariabel_hr` AS `t0_c0`, `t`.`id_variabel_satker` AS `t0_c1`, `t`.`tgl_data` AS `t0_c2`, `t`.`nilai_variabel_hr` AS `t0_c3`, `t`.`tgl_input_hr` AS `t0_c4`, `t`.`user_id` AS `t0_c5`, `idVariabelSatker`.`id_variabel_satker` AS `t1_c0`, `idVariabelSatker`.`id_satker` AS `t1_c1`, `idVariabelSatker`.`id_variabel` AS `t1_c2`, `idVariabelSatker`.`status_variabel_satker` AS `t1_c3` FROM `rekap_variabel_harian` `t`  LEFT OUTER JOIN `variabel_satker` `idVariabelSatker` ON (`t`.`id_variabel_satker`=`idVariabelSatker`.`id_variabel_satker`) WHERE (tgl_data = :tgl AND idVariabelSatker.id_variabel = :ivs AND user_rel.id_satker = :sid) in /var/www/html/yii-1.1.16/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(808): CDbCommand->queryAll()
+#2 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(440): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1361): CActiveFinder->query(Object(CDbCriteria), false)
+#5 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#6 /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php(123): CActiveRecord->find(Array)
+#7 /var/www/html/indikatormutursbaru/protected/views/rekapVariabelHarian/laporan_harian.php(169): RekapVariabelHarian::getDataPerTanggal('2019-03-1', '1', '25')
+#8 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(126): require('/var/www/html/i...')
+#9 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('laporan_harian', Array, true)
+#12 /var/www/html/indikatormutursbaru/protected/controllers/RekapVariabelHarianController.php(189): CController->render('laporan_harian', Array)
+#13 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapVariabelHarianController->actionLaporanharian()
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('laporanharian')
+#23 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapVariabelHa...')
+#24 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#25 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanharian
+---
+2019/03/04 14:23:52 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_rel.id_satker' in 'where clause'. The SQL statement executed was: SELECT `t`.`id_rekapvariabel_hr` AS `t0_c0`, `t`.`id_variabel_satker` AS `t0_c1`, `t`.`tgl_data` AS `t0_c2`, `t`.`nilai_variabel_hr` AS `t0_c3`, `t`.`tgl_input_hr` AS `t0_c4`, `t`.`user_id` AS `t0_c5`, `idVariabelSatker`.`id_variabel_satker` AS `t1_c0`, `idVariabelSatker`.`id_satker` AS `t1_c1`, `idVariabelSatker`.`id_variabel` AS `t1_c2`, `idVariabelSatker`.`status_variabel_satker` AS `t1_c3` FROM `rekap_variabel_harian` `t`  LEFT OUTER JOIN `variabel_satker` `idVariabelSatker` ON (`t`.`id_variabel_satker`=`idVariabelSatker`.`id_variabel_satker`) WHERE (tgl_data = :tgl AND idVariabelSatker.id_variabel = :ivs AND user_rel.id_satker = :sid).
+in /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php (123)
+in /var/www/html/indikatormutursbaru/protected/views/rekapVariabelHarian/laporan_harian.php (169)
+in /var/www/html/indikatormutursbaru/protected/controllers/RekapVariabelHarianController.php (189)
+2019/03/04 14:23:52 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_rel.id_satker' in 'where clause'. The SQL statement executed was: SELECT `t`.`id_rekapvariabel_hr` AS `t0_c0`, `t`.`id_variabel_satker` AS `t0_c1`, `t`.`tgl_data` AS `t0_c2`, `t`.`nilai_variabel_hr` AS `t0_c3`, `t`.`tgl_input_hr` AS `t0_c4`, `t`.`user_id` AS `t0_c5`, `idVariabelSatker`.`id_variabel_satker` AS `t1_c0`, `idVariabelSatker`.`id_satker` AS `t1_c1`, `idVariabelSatker`.`id_variabel` AS `t1_c2`, `idVariabelSatker`.`status_variabel_satker` AS `t1_c3` FROM `rekap_variabel_harian` `t`  LEFT OUTER JOIN `variabel_satker` `idVariabelSatker` ON (`t`.`id_variabel_satker`=`idVariabelSatker`.`id_variabel_satker`) WHERE (tgl_data = :tgl AND idVariabelSatker.id_variabel = :ivs AND user_rel.id_satker = :sid) in /var/www/html/yii-1.1.16/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(808): CDbCommand->queryAll()
+#2 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(440): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1361): CActiveFinder->query(Object(CDbCriteria), false)
+#5 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#6 /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php(123): CActiveRecord->find(Array)
+#7 /var/www/html/indikatormutursbaru/protected/views/rekapVariabelHarian/laporan_harian.php(169): RekapVariabelHarian::getDataPerTanggal('2019-03-1', '1', '25')
+#8 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(126): require('/var/www/html/i...')
+#9 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('laporan_harian', Array, true)
+#12 /var/www/html/indikatormutursbaru/protected/controllers/RekapVariabelHarianController.php(189): CController->render('laporan_harian', Array)
+#13 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapVariabelHarianController->actionLaporanharian()
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('laporanharian')
+#23 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapVariabelHa...')
+#24 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#25 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanharian
+---
+2019/03/04 14:24:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_rel.id_satker' in 'where clause'. The SQL statement executed was: SELECT `t`.`id_rekapvariabel_hr` AS `t0_c0`, `t`.`id_variabel_satker` AS `t0_c1`, `t`.`tgl_data` AS `t0_c2`, `t`.`nilai_variabel_hr` AS `t0_c3`, `t`.`tgl_input_hr` AS `t0_c4`, `t`.`user_id` AS `t0_c5`, `idVariabelSatker`.`id_variabel_satker` AS `t1_c0`, `idVariabelSatker`.`id_satker` AS `t1_c1`, `idVariabelSatker`.`id_variabel` AS `t1_c2`, `idVariabelSatker`.`status_variabel_satker` AS `t1_c3` FROM `rekap_variabel_harian` `t`  LEFT OUTER JOIN `variabel_satker` `idVariabelSatker` ON (`t`.`id_variabel_satker`=`idVariabelSatker`.`id_variabel_satker`) WHERE (tgl_data = :tgl AND idVariabelSatker.id_variabel = :ivs AND user_rel.id_satker = :sid).
+in /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php (123)
+in /var/www/html/indikatormutursbaru/protected/views/rekapVariabelHarian/laporan_harian.php (169)
+in /var/www/html/indikatormutursbaru/protected/controllers/RekapVariabelHarianController.php (189)
+2019/03/04 14:24:22 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_rel.id_satker' in 'where clause'. The SQL statement executed was: SELECT `t`.`id_rekapvariabel_hr` AS `t0_c0`, `t`.`id_variabel_satker` AS `t0_c1`, `t`.`tgl_data` AS `t0_c2`, `t`.`nilai_variabel_hr` AS `t0_c3`, `t`.`tgl_input_hr` AS `t0_c4`, `t`.`user_id` AS `t0_c5`, `idVariabelSatker`.`id_variabel_satker` AS `t1_c0`, `idVariabelSatker`.`id_satker` AS `t1_c1`, `idVariabelSatker`.`id_variabel` AS `t1_c2`, `idVariabelSatker`.`status_variabel_satker` AS `t1_c3` FROM `rekap_variabel_harian` `t`  LEFT OUTER JOIN `variabel_satker` `idVariabelSatker` ON (`t`.`id_variabel_satker`=`idVariabelSatker`.`id_variabel_satker`) WHERE (tgl_data = :tgl AND idVariabelSatker.id_variabel = :ivs AND user_rel.id_satker = :sid) in /var/www/html/yii-1.1.16/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(808): CDbCommand->queryAll()
+#2 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(440): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1361): CActiveFinder->query(Object(CDbCriteria), false)
+#5 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#6 /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php(123): CActiveRecord->find(Array)
+#7 /var/www/html/indikatormutursbaru/protected/views/rekapVariabelHarian/laporan_harian.php(169): RekapVariabelHarian::getDataPerTanggal('2019-03-1', '1', '25')
+#8 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(126): require('/var/www/html/i...')
+#9 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('laporan_harian', Array, true)
+#12 /var/www/html/indikatormutursbaru/protected/controllers/RekapVariabelHarianController.php(189): CController->render('laporan_harian', Array)
+#13 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapVariabelHarianController->actionLaporanharian()
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('laporanharian')
+#23 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapVariabelHa...')
+#24 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#25 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanharian
+---
+2019/03/04 14:32:10 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id_variabel' in group statement is ambiguous. The SQL statement executed was: SELECT `t`.`id_variabel_satker` AS `t0_c0`, `t`.`id_satker` AS `t0_c1`, `t`.`id_variabel` AS `t0_c2`, `t`.`status_variabel_satker` AS `t0_c3`, `idVariabel`.`id_variabel` AS `t1_c0`, `idVariabel`.`uraian_variabel` AS `t1_c1`, `idVariabel`.`status_variabel` AS `t1_c2` FROM `variabel_satker` `t`  LEFT OUTER JOIN `variabel` `idVariabel` ON (`t`.`id_variabel`=`idVariabel`.`id_variabel`) WHERE (idVariabel.status_variabel=1) GROUP BY id_variabel.
+in /var/www/html/indikatormutursbaru/protected/controllers/RekapVariabelHarianController.php (279)
+in /var/www/html/indikatormutursbaru/index.php (13)
+2019/03/04 14:32:10 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id_variabel' in group statement is ambiguous. The SQL statement executed was: SELECT `t`.`id_variabel_satker` AS `t0_c0`, `t`.`id_satker` AS `t0_c1`, `t`.`id_variabel` AS `t0_c2`, `t`.`status_variabel_satker` AS `t0_c3`, `idVariabel`.`id_variabel` AS `t1_c0`, `idVariabel`.`uraian_variabel` AS `t1_c1`, `idVariabel`.`status_variabel` AS `t1_c2` FROM `variabel_satker` `t`  LEFT OUTER JOIN `variabel` `idVariabel` ON (`t`.`id_variabel`=`idVariabel`.`id_variabel`) WHERE (idVariabel.status_variabel=1) GROUP BY id_variabel in /var/www/html/yii-1.1.16/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(808): CDbCommand->queryAll()
+#2 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(440): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/html/yii-1.1.16/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1361): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/html/indikatormutursbaru/protected/controllers/RekapVariabelHarianController.php(279): CActiveRecord->findAll(Array)
+#7 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapVariabelHarianController->actionGetDataHarian()
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('getDataHarian')
+#17 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapVariabelHa...')
+#18 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#19 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapVariabelHarian/getDataHarian&bulan=03&tahun=2019&satker=
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanharian
+---
+2019/03/04 15:48:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/create". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/create
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php
+---
+2019/03/04 15:49:12 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/laporanharian". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/laporanharian
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/create
+---
+2019/03/05 08:29:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/laporanharian". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/laporanharian
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php
+---
+2019/03/05 08:44:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/create". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/create
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php
+---
+2019/03/05 08:45:05 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/laporanharian". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/laporanharian
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapvariabelharian/create
+---
+2019/03/05 08:55:11 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelbulanan/laporanbulanan". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelbulanan/laporanbulanan
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanharian
+---
+2019/03/05 08:55:17 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/laporanindikatorharian". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/laporanindikatorharian
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanharian
+---
+2019/03/05 08:55:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/laporanharian". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/laporanharian
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanindikatorharian
+---
+2019/03/05 09:14:07 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/create". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/create
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanharian
+---
+2019/03/05 09:14:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/simpannilai". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/simpannilai&nilai=15&tgl_data=&variabelsatker=1
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/create
+---
+2019/03/05 09:14:40 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/simpannilai". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/simpannilai&nilai=17&tgl_data=&variabelsatker=87
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/create
+---
+2019/03/05 09:14:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanindikatorharian
+---
+2019/03/05 09:15:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelbulanan/create". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelbulanan/create
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/create
+---
+2019/03/05 09:15:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/create". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/create
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapvariabelbulanan/create
+---
+2019/03/05 09:16:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/create". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/create
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/laporanindikatorharian
+---
+2019/03/05 09:17:17 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/simpannilai". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/simpannilai&nilai=15&tgl_data=2019-03-05&variabelsatker=1
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/create
+---
+2019/03/05 09:45:45 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/laporanindikatorharian". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/laporanindikatorharian
+---
+2019/03/05 09:48:01 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "klparea/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('klparea/admin')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=klparea/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=unit/admin
+---
+2019/03/05 09:48:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=klparea/admin
+---
+2019/03/05 09:48:44 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=klparea/admin
+---
+2019/03/05 09:48:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=klparea/admin
+---
+2019/03/05 09:48:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=klparea/admin
+---
+2019/03/05 09:48:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=klparea/admin
+---
+2019/03/05 09:48:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=klparea/admin
+---
+2019/03/05 09:48:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=klparea/admin
+---
+2019/03/05 09:48:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=klparea/admin
+---
+2019/03/05 09:52:18 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/create". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapvariabelharian/create
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapVariabelHarian/admin
+---
+2019/03/05 09:52:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php?r=rekapvariabelharian/create
+---
+2019/03/05 09:53:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/admin
+---
+2019/03/05 09:53:06 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/admin
+---
+2019/03/05 09:53:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/admin
+---
+2019/03/05 09:53:13 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelharian/create". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/create
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/indikator/admin
+---
+2019/03/05 09:54:54 [error] [exception.CException] CException: RekapvariabelharianController cannot find the requested view "create". in /var/www/html/yii-1.1.16/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php(90): CController->render('create', Array)
+#2 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelharianController->actionCreate()
+#3 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('create')
+#12 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapVariabelHa...')
+#13 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#14 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/indikatormutursbaru/index.php?r=rekapVariabelHarian/create
+---
+2019/03/05 13:54:04 [error] [exception.CException] CException: RekapvariabelharianController cannot find the requested view "create". in /var/www/html/yii-1.1.16/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#1 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php(90): CController->render('create', Array)
+#2 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelharianController->actionCreate()
+#3 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('create')
+#12 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#13 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#14 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/create
+---
+2019/03/05 14:08:08 [error] [exception.CException] CException: Property "Indikator.month" is not defined. in /var/www/html/yii-1.1.16/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(145): CComponent->__get('month')
+#1 /var/www/html/yii-1.1.16/framework/web/helpers/CHtml.php(2728): CActiveRecord->__get('month')
+#2 /var/www/html/yii-1.1.16/framework/web/helpers/CHtml.php(1981): CHtml::resolveValue(Object(Indikator), 'month')
+#3 /var/www/html/yii-1.1.16/framework/web/widgets/CActiveForm.php(914): CHtml::activeDropDownList(Object(Indikator), 'month', Array, Array)
+#4 /var/www/html/indikatormutursbaru/protected/views/rekapvariabelharian/laporan_indikator_harian.php(59): CActiveForm->dropDownList(Object(Indikator), 'month', Array)
+#5 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(126): require('/var/www/html/i...')
+#6 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#7 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('laporan_indikat...', Array, true)
+#9 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php(254): CController->render('laporan_indikat...', Array)
+#10 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelharianController->actionLaporanindikatorharian()
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#12 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#18 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('laporanindikato...')
+#20 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#21 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#22 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/laporanindikatorharian
+---
+2019/03/06 11:00:36 [error] [exception.ParseError] ParseError: syntax error, unexpected ';', expecting ',' or ')' in /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php:176
+Stack trace:
+#0 [internal function]: YiiBase::autoload('RekapVariabelHa...')
+#1 /var/www/html/indikatormutursbaru/protected/views/rekapvariabelharian/ajax_laporan_indikator_harian.php(29): spl_autoload_call('RekapVariabelHa...')
+#2 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(126): require('/var/www/html/i...')
+#3 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#4 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#5 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php(346): CController->renderPartial('ajax_laporan_in...', Array, true, false)
+#6 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelharianController->actionGetLaporanHarian()
+#7 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('getlaporanharia...')
+#16 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#17 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#18 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/getlaporanharian?bulan=03&tahun=2019
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/rekapvariabelharian/laporanindikatorharian
+---
+2019/03/06 11:00:38 [error] [exception.ParseError] ParseError: syntax error, unexpected ';', expecting ',' or ')' in /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php:176
+Stack trace:
+#0 [internal function]: YiiBase::autoload('RekapVariabelHa...')
+#1 /var/www/html/indikatormutursbaru/protected/views/rekapvariabelharian/ajax_laporan_indikator_harian.php(29): spl_autoload_call('RekapVariabelHa...')
+#2 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(126): require('/var/www/html/i...')
+#3 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#4 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#5 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php(346): CController->renderPartial('ajax_laporan_in...', Array, true, false)
+#6 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelharianController->actionGetLaporanHarian()
+#7 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('getlaporanharia...')
+#16 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#17 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#18 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/getlaporanharian?bulan=03&tahun=2019
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/rekapvariabelharian/laporanindikatorharian
+---
+2019/03/06 11:00:39 [error] [exception.ParseError] ParseError: syntax error, unexpected ';', expecting ',' or ')' in /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php:176
+Stack trace:
+#0 [internal function]: YiiBase::autoload('RekapVariabelHa...')
+#1 /var/www/html/indikatormutursbaru/protected/views/rekapvariabelharian/laporan_indikator_harian.php(114): spl_autoload_call('RekapVariabelHa...')
+#2 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(126): require('/var/www/html/i...')
+#3 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#4 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#5 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('laporan_indikat...', Array, true)
+#6 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php(261): CController->render('laporan_indikat...', Array)
+#7 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelharianController->actionLaporanindikatorharian()
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('laporanindikato...')
+#17 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelha...')
+#18 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#19 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/laporanindikatorharian
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php
+---
