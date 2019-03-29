@@ -109,6 +109,7 @@ EOP;
 			    		
 			    		echo '<tr class="'.$class.'">';
 			    		echo '<td width = 20px; align = "center">'.$no.'</td>';
+			    		//echo '<td width = 20px; align = "center">'.$data->id_indikator.'</td>';
 			    		echo '<td width = 400px;>'.$data->idIndikator->uraian_ind.'</td>';
 
 			    		$totalNumerator = 0;

@@ -17,6 +17,8 @@
  */
 class RekapVariabelBulanan extends CActiveRecord
 {
+	public $year;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -38,7 +40,8 @@ class RekapVariabelBulanan extends CActiveRecord
 			array('nilai_variabel_bl', 'length', 'max'=>19),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_rekapvariabel_bl, id_variabel_satker, nilai_variabel_bl, periode_bln, periode_thn, tgl_input_bl, user_id', 'safe', 'on'=>'search'),
+			array('id_rekapvariabel_bl, id_variabel_satker, nilai_variabel_bl, periode_bln, periode_thn, tgl_input_bl, user_id, year', 'safe'),
+			array('id_rekapvariabel_bl, id_variabel_satker, nilai_variabel_bl, periode_bln, periode_thn, tgl_input_bl, user_id, year', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -111,4 +114,72 @@ class RekapVariabelBulanan extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public static function getDataPerBulan($bulan, $tahun, $id_var_satker){
+		$model = RekapVariabelBulanan::model()->find(array(
+			'condition'=>'id_variabel_satker = :idv AND periode_bln = :pb AND periode_thn = :pth',
+			'params'=>array(':idv'=>$id_var_satker, ':pb'=>$bulan, ':pth'=>$tahun)
+		));
+
+		if($model != null){
+			return $model->nilai_variabel_bl;
+		}else{
+			return 0;
+		}
+		
+	}
+
+	public static function getPersenLaporanBulanan($id_indikator, $id_satker, $bulan, $tahun){
+		$indikator = Indikator::model()->findByPk($id_indikator);
+
+		$variabelSatkerNum = VariabelSatker::model()->find(array(
+			'condition'=>'id_satker = :ids AND id_variabel = :idv',
+			'params'=>array(':ids'=>$id_satker, ':idv'=>$indikator->variabel_1)
+		));
+
+		$variabelSatkerDen = VariabelSatker::model()->find(array(
+			'condition'=>'id_satker = :ids AND id_variabel = :idv',
+			'params'=>array(':ids'=>$id_satker, ':idv'=>$indikator->variabel_2)
+		));
+
+		$nilaiNum = RekapVariabelBulanan::model()->find(array(
+			'condition'=>'id_variabel_satker = :idv AND periode_bln = :bln AND periode_thn = :thn',
+			'params'=>array(':idv'=>$variabelSatkerNum->id_variabel_satker, ':bln'=>$bulan, ':thn'=>$tahun)
+		));
+
+		$nilaiDen = RekapVariabelBulanan::model()->find(array(
+			'condition'=>'id_variabel_satker = :idv AND periode_bln = :bln AND periode_thn = :thn',
+			'params'=>array(':idv'=>$variabelSatkerDen->id_variabel_satker, ':bln'=>$bulan, ':thn'=>$tahun)
+		));
+
+		$numerator = 0;
+		$denumerator = 0;
+
+		if($nilaiNum != null){
+			$numerator = $nilaiNum->nilai_variabel_bl;
+		}
+
+		if($nilaiDen != null){
+			$denumerator = $nilaiDen->nilai_variabel_bl;
+		}
+
+		if($numerator != 0 && $denumerator == 0){
+			$nilaiPersen = 'N/A';
+		}else{
+			$persen = round((($numerator/$denumerator)*100), 2);
+			$nilaiPersen = $persen.'%';
+		}
+
+		if($numerator == 0 && $denumerator == 0){
+			$nilaiPersen = '0%';
+		}
+
+		$return['numerator'] = $numerator;
+		$return['denumerator'] = $denumerator;
+		$return['persen'] = $nilaiPersen;
+		
+
+		return $return;
+	}
+
 }

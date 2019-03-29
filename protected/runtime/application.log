@@ -2984,3 +2984,226 @@ Stack trace:
 REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/laporanindikatorharian
 HTTP_REFERER=http://localhost/indikatormutursbaru/index.php
 ---
+2019/03/20 13:09:17 [error] [php] Uninitialized string offset: 0 (/var/www/html/yii-1.1.16/framework/web/CHttpRequest.php:478)
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#1 /var/www/html/indikatormutursbaru/index.php(13): CWebApplication->run()
+REQUEST_URI=/indikatormutursbaru/index.php
+in /var/www/html/indikatormutursbaru/index.php (13)
+2019/03/20 13:09:26 [error] [php] Undefined variable: timestamp (/var/www/html/indikatormutursbaru/protected/views/rekapvariabelharian/laporan_harian.php:78)
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CController.php(869): RekapvariabelharianController->renderFile()
+#1 /var/www/html/yii-1.1.16/framework/web/CController.php(782): RekapvariabelharianController->renderPartial()
+#2 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php(189): RekapvariabelharianController->render()
+#3 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelharianController->actionLaporanharian()
+#4 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): RekapvariabelharianController->runAction()
+#6 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): RekapvariabelharianController->filterAccessControl()
+#9 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(265): RekapvariabelharianController->runActionWithFilters()
+#12 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): RekapvariabelharianController->run()
+#13 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#15 /var/www/html/indikatormutursbaru/index.php(13): CWebApplication->run()
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/laporanharian
+in /var/www/html/indikatormutursbaru/protected/views/rekapvariabelharian/laporan_harian.php (78)
+in /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php (189)
+in /var/www/html/indikatormutursbaru/index.php (13)
+2019/03/20 13:09:32 [error] [php] Division by zero (/var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php:173)
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): RekapvariabelharianController->renderInternal()
+#1 /var/www/html/yii-1.1.16/framework/web/CController.php(869): RekapvariabelharianController->renderFile()
+#2 /var/www/html/yii-1.1.16/framework/web/CController.php(782): RekapvariabelharianController->renderPartial()
+#3 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php(265): RekapvariabelharianController->render()
+#4 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelharianController->actionLaporanindikatorharian()
+#5 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): RekapvariabelharianController->runAction()
+#7 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#9 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): RekapvariabelharianController->filterAccessControl()
+#10 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/html/yii-1.1.16/framework/web/CController.php(265): RekapvariabelharianController->runActionWithFilters()
+#13 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): RekapvariabelharianController->run()
+#14 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/indikatormutursbaru/index.php(13): CWebApplication->run()
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelharian/laporanindikatorharian
+in /var/www/html/indikatormutursbaru/protected/models/RekapVariabelHarian.php (173)
+in /var/www/html/indikatormutursbaru/protected/views/rekapvariabelharian/laporan_indikator_harian.php (118)
+in /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelharianController.php (265)
+2019/03/21 08:25:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelbulanan/admin". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/admin
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php
+---
+2019/03/21 08:25:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "rekapvariabelbulanan/laporanbulanan". in /var/www/html/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#1 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/laporanbulanan
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php
+---
+2019/03/21 13:29:49 [error] [exception.ParseError] ParseError: syntax error, unexpected '<=' (T_IS_SMALLER_OR_EQUAL), expecting variable (T_VARIABLE) or '{' or '$' in /var/www/html/indikatormutursbaru/protected/views/rekapvariabelbulanan/laporan_bulanan.php:102
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#1 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#2 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('laporan_bulanan', Array, true)
+#3 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelbulananController.php(179): CController->render('laporan_bulanan', Array)
+#4 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelbulananController->actionLaporanbulanan()
+#5 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('laporanbulanan')
+#14 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#15 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/laporanbulanan
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/site/login
+---
+2019/03/21 14:38:54 [error] [exception.CException] CException: Property "RekapVariabelBulanan.month" is not defined. in /var/www/html/yii-1.1.16/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(161): CComponent->__set('month', '03')
+#1 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelbulananController.php(177): CActiveRecord->__set('month', '03')
+#2 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelbulananController->actionLaporanbulanan()
+#3 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('laporanbulanan')
+#12 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#13 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#14 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/laporanbulanan
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/site/login
+---
+2019/03/22 08:43:20 [error] [exception.Error] Error: Using $this when not in object context in /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelbulananController.php:262
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelbulananController::actionGetDataTahunan()
+#1 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#2 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('getdatatahunan')
+#10 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#11 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/getdatatahunan?tahun=2018
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/rekapvariabelbulanan/laporanbulanan
+---
+2019/03/22 08:45:56 [error] [exception.Error] Error: Using $this when not in object context in /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelbulananController.php:264
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelbulananController::actionGetDataTahunan()
+#1 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#2 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('getdatatahunan')
+#10 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#11 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/getdatatahunan?tahun=2018
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/rekapvariabelbulanan/laporanbulanan
+---
+2019/03/22 08:48:59 [error] [exception.Error] Error: Using $this when not in object context in /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelbulananController.php:264
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelbulananController::actionGetDataTahunan()
+#1 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#2 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('getdatatahunan')
+#10 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#11 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/getdatatahunan?tahun=2019
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/rekapvariabelbulanan/laporanbulanan
+---
+2019/03/22 08:49:39 [error] [exception.CException] CException: RekapvariabelbulananController and its behaviors do not have a method or closure named "_sendResponse". in /var/www/html/yii-1.1.16/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelbulananController.php(269): CComponent->__call('_sendResponse', Array)
+#1 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelbulananController->actionGetDataTahunan()
+#2 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#9 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('getdatatahunan')
+#11 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#12 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#13 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/getdatatahunan?tahun=2018
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php/rekapvariabelbulanan/laporanbulanan
+---
+2019/03/22 09:38:36 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ND periode_bln = 1 AND periode_thn = '2019' LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `rekap_variabel_bulanan` `t` WHERE id_variabel_satker = :idv ND periode_bln = :bln AND periode_thn = :thn LIMIT 1.
+in /var/www/html/indikatormutursbaru/protected/models/RekapVariabelBulanan.php (152)
+in /var/www/html/indikatormutursbaru/protected/views/rekapvariabelbulanan/laporan_indikator_bulanan.php (119)
+in /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelbulananController.php (250)
+2019/03/22 09:38:36 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ND periode_bln = 1 AND periode_thn = '2019' LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `rekap_variabel_bulanan` `t` WHERE id_variabel_satker = :idv ND periode_bln = :bln AND periode_thn = :thn LIMIT 1 in /var/www/html/yii-1.1.16/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/yii-1.1.16/framework/db/CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 /var/www/html/yii-1.1.16/framework/db/ar/CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 /var/www/html/indikatormutursbaru/protected/models/RekapVariabelBulanan.php(152): CActiveRecord->find(Array)
+#4 /var/www/html/indikatormutursbaru/protected/views/rekapvariabelbulanan/laporan_indikator_bulanan.php(119): RekapVariabelBulanan::getPersenLaporanBulanan('276', '43', 1, '2019')
+#5 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(126): require('/var/www/html/i...')
+#6 /var/www/html/yii-1.1.16/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/i...', Array, true)
+#7 /var/www/html/yii-1.1.16/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/i...', Array, true)
+#8 /var/www/html/yii-1.1.16/framework/web/CController.php(782): CController->renderPartial('laporan_indikat...', Array, true)
+#9 /var/www/html/indikatormutursbaru/protected/controllers/RekapvariabelbulananController.php(250): CController->render('laporan_indikat...', Array)
+#10 /var/www/html/yii-1.1.16/framework/web/actions/CInlineAction.php(49): RekapvariabelbulananController->actionLaporanindikatorbulanan()
+#11 /var/www/html/yii-1.1.16/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#12 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 /var/www/html/yii-1.1.16/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /var/www/html/yii-1.1.16/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 /var/www/html/yii-1.1.16/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 /var/www/html/yii-1.1.16/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 /var/www/html/yii-1.1.16/framework/web/CController.php(291): CFilterChain->run()
+#18 /var/www/html/yii-1.1.16/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('laporanindikato...')
+#20 /var/www/html/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('rekapvariabelbu...')
+#21 /var/www/html/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#22 /var/www/html/indikatormutursbaru/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/indikatormutursbaru/index.php/rekapvariabelbulanan/laporanindikatorbulanan
+HTTP_REFERER=http://localhost/indikatormutursbaru/index.php
+---

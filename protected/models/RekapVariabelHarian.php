@@ -147,12 +147,12 @@ class RekapVariabelHarian extends CActiveRecord
 		));
 
 		$nilaiNum = RekapVariabelHarian::model()->find(array(
-			'condition'=>'id_variabel_satker = :idv AND tgl_input_hr = "'.$tgl.'"',
+			'condition'=>'id_variabel_satker = :idv AND DATE(tgl_input_hr) = "'.$tgl.'"',
 			'params'=>array(':idv'=>$variabelSatkerNum->id_variabel_satker)
 		));
 
 		$nilaiDen = RekapVariabelHarian::model()->find(array(
-			'condition'=>'id_variabel_satker = :idv AND tgl_input_hr = "'.$tgl.'"',
+			'condition'=>'id_variabel_satker = :idv AND DATE(tgl_input_hr) = "'.$tgl.'"',
 			'params'=>array(':idv'=>$variabelSatkerDen->id_variabel_satker)
 		));
 
